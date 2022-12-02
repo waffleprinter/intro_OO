@@ -1,0 +1,26 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 2
+Programme qui fait un objet "rectangle" avec les attributs "largeur" et "longueur". Permet l'usager de calculer son
+aire et d'afficher l'info du rectangle.
+"""
+
+
+class Rectangle:
+    def __init__(self, largeur, longueur):
+        self.largeur = largeur
+        self.longueur = longueur
+
+    def calcul_aire(self):
+        return self.largeur * self.longueur
+
+    def afficher_infos(self):
+        print(f"Largeur: {self.largeur}"
+              f"\nLongueur: {self.longueur}"
+              f"\nAire: {self.calcul_aire()}")
+
+
+rectangle = Rectangle(4, 6.7)
+
+rectangle.calcul_aire()
+rectangle.afficher_infos()
