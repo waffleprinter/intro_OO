@@ -1,0 +1,23 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 1
+Programme qui fait un objet "StringFoo" avec un attribut "message". Permet l'usager de redefinir cette message
+et de l'imprimer.
+"""
+
+
+class StringFoo:
+    def __init__(self, message):
+        self.message = message
+
+    def set_string(self, string):
+        self.message = string
+
+    def print_string(self):
+        print(self.message.upper())
+
+
+string_foo = StringFoo("I don't like waffles.")
+
+string_foo.set_string("I like waffles.")
+string_foo.print_string()
