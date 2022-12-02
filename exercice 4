@@ -1,0 +1,33 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 4
+Programme qui fait un objet "hero" avec plusieurs attributs. Permet l'héro d'attaquer et de prendre du dommage. Le
+programme nous laisse aussi voir si l'héro est encore en vie.
+"""
+
+import random
+
+
+class Hero:
+    def __init__(self, name):
+        self.name = name
+        self.health = random.randint(1, 10) + random.randint(1, 10)
+        self.attack_strength = random.randint(1, 6)
+        self.defence_strength = random.randint(1, 6)
+
+    def attack_enemy(self):
+        return random.randint(1, 6) + self.attack_strength
+
+    def take_damage(self, adversary_attack_damage):
+        self.health -= adversary_attack_damage - self.defence_strength
+        return self.health
+
+    def is_alive(self):
+        return self.health > 0
+
+
+hero = Hero("Arthur")
+
+print(f"{hero.name} attacks and does {hero.attack_enemy()} damage!")
+print(f"{hero.name} takes damage and now has {hero.take_damage(15)} health!")
+print(f"Is {hero.name} is alive? {hero.is_alive()}")
