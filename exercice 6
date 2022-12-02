@@ -1,0 +1,39 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 6
+Programmme identique à l'exercice 4, mais utilise un dataclass pour les stats cette fois-ci.
+"""
+
+import random
+from dataclasses import dataclass
+
+
+@dataclass
+class Stats:
+    health: int = random.randint(1, 10) + random.randint(1, 10)
+    attack_strength: int = random.randint(1, 6)
+    defense_strength: int = random.randint(1, 6)
+
+
+class Hero:
+    def __init__(self, name):
+        self.name = name
+        self.stats = Stats()
+
+    def attack_enemy(self):
+        return random.randint(1, 6) + self.stats.attack_strength
+
+    def take_damage(self, adversary_attack_damage):
+        self.stats.health -= adversary_attack_damage - self.stats.defense_strength
+        return self.stats.health
+
+    def is_alive(self):
+        return self.stats.health > 0
+
+
+hero = Hero("Arthur")
+
+print(f"{hero.name} attacks and does {hero.attack_enemy()} damage!")
+print(f"{hero.name} takes damage and now has {hero.take_damage(15)} health!")
+print(f"Is {hero.name} is alive? {hero.is_alive()}.")
+
