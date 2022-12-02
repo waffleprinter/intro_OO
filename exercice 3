@@ -1,0 +1,23 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 3
+Programme qui fait un object "cercle" avec un attribut "aire". Permet l'usager de calculer l'aire et la circonférance.
+"""
+
+from math import pi
+
+
+class Cercle:
+    def __init__(self, rayon):
+        self.rayon = rayon
+
+    def calcul_aire(self):
+        return pi * self.rayon ** 2
+
+    def calcul_circonferance(self):
+        return 2 * pi * self.rayon
+
+
+cercle = Cercle(5)
+print(f"Aire: {cercle.calcul_aire()}"
+      f"\nCirconferance: {cercle.calcul_circonferance()}")
