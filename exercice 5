@@ -1,0 +1,34 @@
+"""
+Jacques-Conrad Calagui-Painchaud, 405
+TP4 - exercice 5
+Programme qui permet d'imprimer les stats d'un personnage, qui sont défini dans un dataclass avec des valeurs aléatoire
+entre 1 et 20.
+"""
+
+import random
+from dataclasses import dataclass
+
+
+@dataclass
+class Stats:
+    strength: int = random.randint(1, 20)
+    dexterity: int = random.randint(1, 20)
+    constitution: int = random.randint(1, 20)
+    intelligence: int = random.randint(1, 20)
+    wisdom: int = random.randint(1, 20)
+    charisma: int = random.randint(1, 20)
+
+
+class Player:
+    def __init__(self):
+        self.stats = Stats()
+
+
+player = Player()
+
+print(f"Le joueur a une force de {player.stats.strength}"
+      f"\nLe joueur a une dextérité de {player.stats.dexterity}"
+      f"\nLe joueur a une constitution de {player.stats.constitution}"
+      f"\nLe joueur a une intelligence de {player.stats.intelligence}"
+      f"\nLe joueur a une sagesse de {player.stats.wisdom}"
+      f"\nLe joueur a une charisme de {player.stats.charisma}")
